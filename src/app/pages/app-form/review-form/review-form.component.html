@@ -1,0 +1,73 @@
+<div class="card">
+  <div class="card-body">
+    <h3><b>Tax Filling Detail </b></h3>
+    <hr />
+    <div class="row">
+      <div class="col-3">
+        <h5><b>Type of Filing :</b></h5>
+      </div>
+      <div class="col-3">
+        {{ appForm.type }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h5><p>VAT Month :</p></h5>
+    </div>
+      <div class="col-3">
+        {{ appForm.month }} {{ appForm.years }}
+    </div>
+    </div>
+    <br />
+    <br />
+    <!-- End 1 -->
+    <h3><b>Tax Computation</b></h3>
+    <hr />
+    <!-- <p>Provide total value taxable electronic service</p> -->
+    <div class="row">
+      <div class="col-8">
+        <label for="exampleFormControlInput1" class="form-label"
+          ><h5>Total value of tarable electonic service exclusive of VAT</h5>
+        </label>
+      </div>
+      <div class="col-4">
+        {{ appForm.numberValue | number: "3.2-5" }} THB
+        <!-- <input type="text" class="form-control" id="exampleFormControlInput1" /> -->
+      </div>
+
+      <div class="col-8">
+        <label for="exampleFormControlInput1" class="form-label"
+          ><h5>Total VAT to be remitted</h5>
+          <p>
+            (7% of total value of taxable electronic service exclusicve of VAT )
+          </p>
+        </label>
+      </div>
+      <div class="col-4">
+        {{ appForm.vatValue | number: "3.2-5" }} THB
+        <!-- <input type="text" class="form-control" id="exampleFormControlInput1" /> -->
+      </div>
+      <div class="col-8">
+        <label for="exampleFormControlInput1" class="form-label"
+          ><h5><b>Total Amount Payable</b></h5>
+        </label>
+      </div>
+      <div class="col-4">
+        <b
+          >{{
+            totalAmount(appForm.numberValue, appForm.vatValue) | number: "3.2-5"
+          }}
+          THB</b
+        >
+        <!-- <input type="text" class="form-control" id="exampleFormControlInput1" /> -->
+      </div>
+    </div>
+    <br />
+    <h3><b>Declaration</b></h3>
+    <hr />
+    <p>
+      I hereby certify that infomation given above are true and correct and
+      agree to be bound by such information
+    </p>
+  </div>
+</div>

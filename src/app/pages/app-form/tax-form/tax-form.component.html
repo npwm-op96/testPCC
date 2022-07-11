@@ -1,0 +1,106 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="taxFormGroup">
+      <h3><p>1. Tax Filling Detail</p></h3>
+      <hr />
+      <p>Type of Filing <b class="text-danger">*</b></p>
+
+      <div>
+        <div class="form-check form-check-inline">
+          <input
+            (ngModelChange)="onChange()"
+            class="form-check-input"
+            type="radio"
+            id="inlineRadio1"
+            value="Ordinary Filing"
+            formControlName="type"
+          />
+          <label class="form-check-label" for="inlineRadio1"
+            >Ordinary Filing</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            (ngModelChange)="onChange()"
+            class="form-check-input"
+            type="radio"
+            id="inlineRadio2"
+            value="Additionnal Filing"
+            formControlName="type"
+          />
+          <label class="form-check-label" for="inlineRadio2"
+            >Additionnal Filing</label
+          >
+        </div>
+      </div>
+      <br />
+      <p>VAT Month <b class="text-danger">*</b></p>
+
+      <div class="row">
+        <div class="col-4">
+          <select
+            (ngModelChange)="onChange()"
+            formControlName="month"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option *ngFor="let month of month" [value]="month">
+              {{ month }}
+            </option>
+          </select>
+        </div>
+        <div class="col-2 col-sm-4">
+          <select
+            (ngModelChange)="onChange()"
+            formControlName="years"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option *ngFor="let year of years" [value]="year.value">
+              {{ year.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <!-- End 1 -->
+      <h3><p>2. Tax Computation</p></h3>
+      <hr />
+      <b>Provide total value taxable electronic service</b>
+      <div class="row">
+        <div class="col-8">
+          <label for="exampleFormControlInput1" class="form-label"
+            >1. Total value of tarable electonic service exclusive of VAT
+          </label>
+        </div>
+        <div class="col-4">
+          <input
+          
+            TwoDigitDecimaNumber
+            formControlName="numberValue"
+            (ngModelChange)="taxCal($event)"
+            placeholder="THB"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+
+        <div class="col-8">
+          <label for="exampleFormControlInput1" class="form-label"
+            >2. Total VAT to be remitted (7% of 1)
+          </label>
+        </div>
+        <div class="col-4">
+          <input
+            [value]="taxFormGroup.get('vatValue').value | number: '3.2-5'"
+            (ngModelChange)="changeTax($event)"
+            formControlName="vatValue"
+            placeholder="THB"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

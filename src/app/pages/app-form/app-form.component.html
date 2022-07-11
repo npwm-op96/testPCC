@@ -1,0 +1,53 @@
+
+<mat-stepper>
+  <mat-step label="Review & Confirm">
+      <div>
+        <app-tax-form
+          (appFormOut)="updateappForm($event)"
+        ></app-tax-form>
+        <br />
+        <!-- <button mat-button matStepperPrevious>Back</button> -->
+        <!-- <button mat-button matStepperNext>Next</button> -->
+        <div class="row">
+          <div class="col-1 ">
+            <button
+              type="button"
+              matStepperNext
+              class="btn btn-light button-stepper"
+            >
+              Back
+            </button>
+          </div>
+          <div class="col-1">
+            <button
+              type="button"
+              matStepperNext
+              class="btn btn-dark button-stepper"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+  </mat-step>
+  <mat-step label="Review & Confirm">
+      <div>
+        <app-review-form [appForm]="appForm"></app-review-form>
+        <br />
+
+        <!-- <button mat-button matStepperPrevious>Back</button> -->
+        <div class="text-center">
+          <button
+            type="button"
+            (click)="Confirm()"
+
+            class="btn btn-dark button-stepper"
+          >
+            Confirm and Submit
+          </button>
+        </div>
+      </div>
+  </mat-step>
+</mat-stepper>
+<!-- Tax Filing Complete -->
+
