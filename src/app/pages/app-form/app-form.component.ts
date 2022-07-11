@@ -34,6 +34,3 @@ export class AppFormComponent implements OnInit {
     });
   }
 }
-// export class DialogDataExampleDialog {
-//   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-// }

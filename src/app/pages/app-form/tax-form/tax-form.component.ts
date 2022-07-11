@@ -24,8 +24,6 @@ export class TaxFormComponent implements OnInit {
       years: [''],
       month: [''],
       type:['']
-
-
     });
   }
 
@@ -74,6 +72,10 @@ export class TaxFormComponent implements OnInit {
     if(total>20 || total<(-20)){
       alert('Invalid Tax')
       console.log('Invalid Tax')
+      this.taxFormGroup.patchValue({
+        numberValue:this.oldtax,
+        // vatValue: result,
+      });
     }
   }
   onChange(){
